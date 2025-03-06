@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Definición de Género</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Definición de Género</h1>
+    </header>
+
+    <div class="container">
+        <div class="upload-section">
+            <label for="excelFile">Sube tu archivo Excel</label>
+            <input type="file" id="excelFile" name="excelFile" accept=".xlsx, .xls">
+            <label for="excelFile" class="custom-file-upload">Seleccionar Archivo</label>
+            <button type="button" id="uploadButton" onclick="uploadFile()">Subir Archivo</button>
+        </div>
+
+        <div class="status-message" id="statusMessage"></div>
+        <!-- Nuevo elemento para mostrar el archivo cargado -->
+        <div id="uploadedFile"></div>
+
+        <!-- Contador de solicitudes -->
+        <div id="requestCount">
+            Solicitudes hoy: <span id="requestCountValue">{{ request_count }}</span>/1000
+        </div>
+
+        <!-- Spinner de carga -->
+        <div id="loadingSpinner" class="spinner" style="display: none;">
+            <div class="spinner-icon"></div>
+            <p>Procesando datos...</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Emerson Hernández. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Enlaza el archivo JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
